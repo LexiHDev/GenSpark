@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Guess The Number Game - GenSpark.iml" filepath="$PROJECT_DIR$/Guess The Number Game - GenSpark.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Guess The Number.iml" filepath="$PROJECT_DIR$/Guess The Number.iml" />
     </modules>
   </component>
 </project>

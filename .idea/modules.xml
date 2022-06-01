@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DragonQuest/DragonQuest.iml" filepath="$PROJECT_DIR$/DragonQuest/DragonQuest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/GenSparkGit.iml" filepath="$PROJECT_DIR$/.idea/GenSparkGit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Guess The Number Game - GenSpark/Guess The Number Game - GenSpark.iml" filepath="$PROJECT_DIR$/Guess The Number Game - GenSpark/Guess The Number Game - GenSpark.iml" />
+    </modules>
+  </component>
+</project>
