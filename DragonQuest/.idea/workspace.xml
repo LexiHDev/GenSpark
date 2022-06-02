@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a64c18a4-d2f7-4549-bf15-4df1eb095835" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_0_M1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_0_M1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DragonQuest.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/MainTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="a64c18a4-d2f7-4549-bf15-4df1eb095835" name="Changes" comment="Add target folder to .gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/untitled104/com/genspark/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/genspark/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/genspark/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled104.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DragonQuest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DragonQuest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/genspark/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/genspark/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,16 +124,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainTest.nameWorks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="DragonQuest" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MainTest" />
-      <option name="METHOD_NAME" value="nameWorks" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="DragonQuest" />
       <method v="2">
@@ -160,13 +139,11 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.MainTest.nameWorks" />
       <item itemvalue="JUnit.MainTest.getInputWorks" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.MainTest.getInputWorks" />
-        <item itemvalue="JUnit.MainTest.nameWorks" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -180,6 +157,28 @@
       <option name="presentableId" value="Default" />
       <updated>1654094352211</updated>
     </task>
+    <task id="LOCAL-00001" summary="Write first Unit test for Dragon Quest.">
+      <created>1654192990865</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1654192990865</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add .gitignore">
+      <created>1654193094909</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1654193094909</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add target folder to .gitignore">
+      <created>1654193157772</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1654193157772</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -192,5 +191,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Write first Unit test for Dragon Quest." />
+    <MESSAGE value="Add .gitignore" />
+    <MESSAGE value="Add target folder to .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add target folder to .gitignore" />
   </component>
 </project>

@@ -12,6 +12,7 @@ class MainTest {
 	Main main;
 	@BeforeEach
 	void setUp() {
+		//noinspection MoveFieldAssignmentToInitializer,InstantiationOfUtilityClass
 		main = new Main();
 	}
 	
@@ -24,6 +25,6 @@ class MainTest {
 	void getInputWorks()
 	{
 		ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream("1".getBytes());
-		Assertions.assertEquals(1, main.getInput("int", "Error: You have not provided valid input", byteArrayInputStream));
+		Assertions.assertEquals(1, Main.getInput("int", "Error: You have not provided valid input", byteArrayInputStream));
 	}
 }

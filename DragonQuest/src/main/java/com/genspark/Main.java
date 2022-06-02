@@ -7,9 +7,8 @@ import java.util.Scanner;
 public class Main
 {
 	
-	private InputStream systemIn;
 	
-	public Object getInput(String type, String errorMsg, InputStream sysIn) {
+	static public Object getInput(String type, String errorMsg, InputStream sysIn) {
 		Scanner scanner = new Scanner(sysIn != null ? sysIn : System.in);
 		int in = -1;
 		while (in == -1)
@@ -30,7 +29,7 @@ public class Main
 		scanner.close();
 		return in;
 	}
-	public void main(String[] args)
+	public static void main(String[] args)
 	{
 		// write your code here
 		System.out.println("You are in a land full of dragons. In front of you,\n" +
