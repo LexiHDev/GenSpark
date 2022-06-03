@@ -6,11 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="GenSparkGit" />
+        <module name="DragonQuest" />
+        <module name="Hangman" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="GenSparkGit" target="11" />
+      <module name="DragonQuest" target="11" />
+      <module name="GenSparkGit" target="1.5" />
+      <module name="GuessTheNumber" target="11" />
+      <module name="Hangman" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

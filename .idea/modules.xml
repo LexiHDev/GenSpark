@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/DragonQuest/DragonQuest.iml" filepath="$PROJECT_DIR$/DragonQuest/DragonQuest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/GenSparkGit.iml" filepath="$PROJECT_DIR$/.idea/GenSparkGit.iml" />
       <module fileurl="file://$PROJECT_DIR$/Guess The Number Game - GenSpark/Guess The Number Game - GenSpark.iml" filepath="$PROJECT_DIR$/Guess The Number Game - GenSpark/Guess The Number Game - GenSpark.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Hangman/Hangman.iml" filepath="$PROJECT_DIR$/Hangman/Hangman.iml" />
     </modules>
   </component>
 </project>
