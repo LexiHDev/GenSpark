@@ -171,8 +171,6 @@ public class Main
 		
 		catch (Exception e)
 		{
-//				assert screen != null;
-//				screen.stopScreen();
 			assert gui != null;
 			Window errWin = new BasicWindow("Error!");
 			gui.addWindow(errWin);

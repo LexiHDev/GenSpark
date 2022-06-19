@@ -21,7 +21,7 @@ public class TestInputs
 	@Test
 	@DisplayName("Get Input from InputStream works.")
 	public void TestGetInputWorks()
-	{
+ 	{
 		ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream("5".getBytes());
 		PrintStream printStream = new PrintStream(System.out);
 		Assertions.assertEquals(false, Main.guessInput(5, "Error should not occur", byteArrayInputStream, printStream ));
