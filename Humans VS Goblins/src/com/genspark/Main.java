@@ -1,16 +1,43 @@
 package com.genspark;
 
-import com.genspark.entities.Human;
-import com.genspark.utils.Grid;
+import com.genspark.utils.GameGrid;
 
-public class Main {
+import java.util.Scanner;
 
-    public static void main(String[] args) {
-        Grid grid = new Grid();
-        grid.PrintGrid();
-    
-        Human human = new Human();
-        System.out.println();
-        System.out.println(human);
-    }
+public class Main
+{
+	boolean running = true;
+	GameGrid gameGrid = new GameGrid();
+	static Scanner scanner;
+	
+	public void main(String[] args)
+	{
+		scanner = new Scanner(System.in);
+		run();
+	}
+	
+	public void run()
+	{
+		try
+		{
+			while (running)
+			{
+				tickGame();
+				repaintGame();
+				
+			}
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	private void repaintGame()
+	{
+		this.gameGrid.PrintGrid();
+	}
+	private void tickGame()
+	{
+	
+	}
 }

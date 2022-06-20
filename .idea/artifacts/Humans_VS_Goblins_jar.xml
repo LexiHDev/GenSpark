@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Humans VS Goblins:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Humans_VS_Goblins_jar</output-path>
+    <root id="archive" name="Humans VS Goblins.jar">
+      <element id="module-output" name="Humans VS Goblins" />
+    </root>
+  </artifact>
+</component>
