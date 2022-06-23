@@ -1,29 +1,70 @@
 package com.genspark;
 
-import com.genspark.utils.GameGrid;
+import com.genspark.entities.Humanoid;
+import com.genspark.utils.Directions;
+import com.genspark.utils.ExceptionUtils.ExceptionTileInUse;
+import com.genspark.utils.GameGrids;
 
 import java.util.Scanner;
 
+import static com.genspark.utils.Directions.EAST;
+import static com.genspark.utils.Directions.NONE;
+import static com.genspark.utils.Directions.NORTH;
+import static com.genspark.utils.Directions.SOUTH;
+import static com.genspark.utils.Directions.WEST;
+
 public class Main
 {
-	boolean running = true;
-	GameGrid gameGrid = new GameGrid();
+	static boolean running = true;
+	static GameGrids gameGrids = new GameGrids();
 	static Scanner scanner;
+	static Humanoid mainChar;
+	static Humanoid enemy;
 	
-	public void main(String[] args)
+	public static void main(String[] args)
 	{
-		scanner = new Scanner(System.in);
-		run();
+		try
+		{
+			scanner = new Scanner(System.in);
+			enemy = gameGrids.addGoblin(1, 1);
+			mainChar = gameGrids.addHuman(3, 3);
+			gameGrids.addGoblin(5, 5);
+			gameGrids.addGoblin(1, 5);
+			gameGrids.addGoblin(5, 1);
+			repaintGame();
+			run();
+		}
+		catch (ExceptionTileInUse e)
+		{
+			e.printStackTrace();
+		}
 	}
 	
-	public void run()
+	public static void run()
 	{
 		try
 		{
 			while (running)
 			{
-				tickGame();
+				Scanner scanner = new Scanner(System.in);
+				scanner.useDelimiter("");
+				char chara = scanner.next().charAt(0);
+				Directions direction;
+				switch(chara) {
+					case 'W':
+						direction = NORTH;
+					case 'S':
+						direction = SOUTH;
+					case 'D':
+						direction = EAST;
+					case 'A':
+						direction = WEST;
+					default:
+						direction = NONE;
+				} // input to direction enum
+				tickGame(direction);
 				repaintGame();
+				
 				
 			}
 		}
@@ -32,12 +73,13 @@ public class Main
 			e.printStackTrace();
 		}
 	}
-	private void repaintGame()
+	private static void repaintGame()
 	{
-		this.gameGrid.PrintGrid();
+		System.out.println(gameGrids);
+		System.out.println("Controls: WASD");
 	}
-	private void tickGame()
+	private static void tickGame(Directions direction)
 	{
-	
+		gameGrids.tickHumanoids();
 	}
 }

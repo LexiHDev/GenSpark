@@ -17,4 +17,11 @@ public class ExceptionUtils
 		public FailedToMoveToTile(String message, Throwable cause) { super(message, cause); }
 		public FailedToMoveToTile(Throwable cause) { super(cause); }
 	}
+	@SuppressWarnings("unused")
+	public static class ExceptionTileInUse extends Exception {
+		public ExceptionTileInUse() { super("Failed To Add To Tile."); }
+		public ExceptionTileInUse(String message) { super(message); }
+		public ExceptionTileInUse(String message, Throwable cause) { super(message, cause); }
+		public ExceptionTileInUse(Throwable cause) { super(cause); }
+	}
 }
