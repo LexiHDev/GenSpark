@@ -4,7 +4,9 @@ import com.genspark.entities.Humanoid;
 import com.genspark.utils.Directions;
 import com.genspark.utils.ExceptionUtils.ExceptionTileInUse;
 import com.genspark.utils.GameGrids;
+import com.genspark.utils.Movement;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 import static com.genspark.utils.Directions.EAST;
@@ -48,17 +50,21 @@ public class Main
 			{
 				Scanner scanner = new Scanner(System.in);
 				scanner.useDelimiter("");
-				char chara = scanner.next().charAt(0);
+				char chara = Character.toLowerCase(scanner.next().charAt(0));
 				Directions direction;
 				switch(chara) {
-					case 'W':
+					case 'w':
 						direction = NORTH;
-					case 'S':
+						break;
+					case 's':
 						direction = SOUTH;
-					case 'D':
+						break;
+					case 'd':
 						direction = EAST;
-					case 'A':
+						break;
+					case 'a':
 						direction = WEST;
+						break;
 					default:
 						direction = NONE;
 				} // input to direction enum
@@ -81,6 +87,16 @@ public class Main
 	private static void tickGame(Directions direction)
 	{
 		// move main character before ticking other humanoids.
+		int[] xy = mainChar.getXY();
+		int[] dir = Movement.directionToVector2d(direction);
+		int[] newXy = new int[]{xy[0] + dir[0], xy[1] + dir[1]};
+		try {
+			gameGrids.moveHumanoidTo(newXy, mainChar);
+			
+		} catch (Exception e) {
+			System.out.println(e.getClass().getName());
+			return;
+		}
 		gameGrids.tickHumanoids();
 	}
 }

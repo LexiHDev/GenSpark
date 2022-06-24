@@ -163,18 +163,20 @@ public class GameGrids
 		int y = vector2d[0];
 		int x = vector2d[1];
 		inBounds(y, x);
-//		if (hasHumanoid(y, x))
-//		{
+		if (!hasHumanoid(y, x))
+		{
+			this.characterGrid[humanoid.getY()][humanoid.getX()] = null;
+			this.characterGrid[y][x] = humanoid;
+			humanoid.setXY(x, y);
+		}
+/*
+		else
+		{
 			// throw new ExceptionTileInUse(String.format("Failed to move to Tile at [%s, %s].", y, x));
 			// We want to instead do nothing
 		    // This would be a good spot for a logger maybe...
-//		}
-//		else
-//		{
-		this.characterGrid[humanoid.getY()][humanoid.getX()] = null;
-		this.characterGrid[y][x] = humanoid;
-		humanoid.setXY(x, y);
-//		}
+		}
+*/
 	}
 	
 	@SuppressWarnings("unused")
