@@ -46,11 +46,11 @@ public class Combat
 	
 	public static void battleHumanoids(Humanoid h1, Humanoid h2)
 	{
-		while (h1.health > 0 && h2.health < 0)
+		while (h1.finalHealth > 0 && h2.finalHealth > 0)
 		{
 			h1.attackHumanoid(h2);
-			if (h2.health > 0) h2.attackHumanoid(h1);
+			if (h2.finalHealth > 0) h2.attackHumanoid(h1);
+			System.out.printf("\n%s: %s\n%s: %s\n", h1.name, h1.finalHealth, h2.name, h2.finalHealth);
 		}
-		System.out.printf("\n%s: %s\n%s: %s\n", h1.name, h1.health, h2.name, h2.health);
 	}
 }

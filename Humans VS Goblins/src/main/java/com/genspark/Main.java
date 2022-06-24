@@ -80,6 +80,7 @@ public class Main
 	}
 	private static void tickGame(Directions direction)
 	{
+		// move main character before ticking other humanoids.
 		gameGrids.tickHumanoids();
 	}
 }

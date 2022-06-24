@@ -103,15 +103,32 @@ public class GameGrids
 	{
 		for (Humanoid humanoid : humanoids())
 		{
-			try{
-			
-			humanoid.tick(this);
-			
-			} catch (Exception e) {
+			try
+			{
+				
+				humanoid.tick(this);
+				
+			}
+			catch (Exception e)
+			{
 				System.out.print(e.getClass().getName());
 			}
 		}
 	}
+	
+	public void removeHumanoid (Humanoid humanoid) {
+		try
+		{
+			characterGrid = Arrays.stream(characterGrid).map(slice -> Arrays.stream(slice).map(point ->{
+				if (point != humanoid) {
+					return point;
+				}
+				return null;
+			}).toArray(Object[]::new)).toArray(Object[][]::new);
+		}
+		catch (Exception e) { e.printStackTrace(); }
+	}
+	
 	
 	public void addHumanoid(int y, int x, Humanoid humanoid) throws ExceptionTileInUse
 	{
@@ -141,27 +158,23 @@ public class GameGrids
 			humanoid.setXY(x, y);
 		}
 	}
-	public void moveHumanoidTo(int[]vector2d, Humanoid humanoid) throws ExceptionTileInUse
+	public void moveHumanoidTo(int[] vector2d, Humanoid humanoid)
 	{
 		int y = vector2d[0];
 		int x = vector2d[1];
-		try
-		{
-			inBounds(y, x);
-			if (hasHumanoid(y, x))
-			{
-				throw new ExceptionTileInUse(String.format("Failed to move to Tile at [%s, %s].", y, x));
-			}
-			else
-			{
-				this.characterGrid[humanoid.getY()][humanoid.getX()] = null;
-				this.characterGrid[y][x] = humanoid;
-				humanoid.setXY(x, y);
-			}
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+		inBounds(y, x);
+//		if (hasHumanoid(y, x))
+//		{
+			// throw new ExceptionTileInUse(String.format("Failed to move to Tile at [%s, %s].", y, x));
+			// We want to instead do nothing
+		    // This would be a good spot for a logger maybe...
+//		}
+//		else
+//		{
+		this.characterGrid[humanoid.getY()][humanoid.getX()] = null;
+		this.characterGrid[y][x] = humanoid;
+		humanoid.setXY(x, y);
+//		}
 	}
 	
 	@SuppressWarnings("unused")
@@ -182,7 +195,7 @@ public class GameGrids
 	public Goblin addGoblin(int y, int x) throws ExceptionTileInUse
 	{
 		Goblin goblin = new Goblin();
-		addHumanoid(y, x,goblin);
+		addHumanoid(y, x, goblin);
 		return goblin;
 	}
 	@SuppressWarnings("unused")
@@ -213,7 +226,8 @@ public class GameGrids
 				{ // with
 					ret.append(characterGrid[verticalSlice][horizontalSlice]).append(" "); // character & space between next visual element
 				}
-				else ret.append(tileGrid[verticalSlice][horizontalSlice]).append(" "); // tile & space between next visual element
+				else
+					ret.append(tileGrid[verticalSlice][horizontalSlice]).append(" "); // tile & space between next visual element
 			}
 			ret.append("|"); // add right border.
 		}

@@ -13,6 +13,7 @@
         <module>DragonQuest</module>
         <module>Guess The Number</module>
         <module>Hangman</module>
+        <module>Humans VS Goblins</module>
     </modules>
 
     <!-- Build -->

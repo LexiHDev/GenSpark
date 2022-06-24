@@ -1,7 +1,6 @@
 package com.genspark.entities;
 
 import com.genspark.utils.Combat;
-import com.genspark.utils.ExceptionUtils.ExceptionTileInUse;
 import com.genspark.utils.GameGrids;
 
 import java.util.Arrays;
@@ -17,16 +16,26 @@ public class Goblin extends Humanoid
 	
 	
 	public Goblin() {
+		health = 15;
+		dmg = 5;
+		updateFinals();
+		
 		name = goblinNames.get((int) (Math.random() * goblinNames.size()));
 	}
+
 	
 	public void tick(GameGrids gameGrids) {
 		Human closest = gameGrids.getClosestHuman(this);
 		if (closest == null) return;
-		if (closest.getY() - this.getY() >= 1 && closest.getX() >= 1) {
+		
+		
+		
+		if (Math.abs(closest.getXY()[1] - this.getXY()[1]) <= 1 && Math.abs(closest.getXY()[0] - this.getXY()[0]) <= 1) {
 			Combat.battleHumanoids(this, closest);
+			super.tick(gameGrids);
 			return;
 		}
+		
 		double angle = Math.toDegrees(Math.atan2(closest.getY() - this.getY(), closest.getX() - this.getX())) % 360;
 		int[] direction;
 		direction = Combat.getDirectionFromDeg((int) angle);
@@ -38,7 +47,7 @@ public class Goblin extends Humanoid
 		{
 			gameGrids.moveHumanoidTo(newPos, this);
 		}
-		catch (ExceptionTileInUse e)
+		catch (Exception e)
 		{
 			e.printStackTrace();
 		}

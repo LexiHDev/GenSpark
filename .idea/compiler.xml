@@ -9,6 +9,7 @@
         <module name="DragonQuest" />
         <module name="Hangman" />
         <module name="Guess The Number" />
+        <module name="Humans VS Goblins" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -17,6 +18,7 @@
       <module name="Guess The Number" target="11" />
       <module name="GuessTheNumber" target="11" />
       <module name="Hangman" target="11" />
+      <module name="Humans VS Goblins" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

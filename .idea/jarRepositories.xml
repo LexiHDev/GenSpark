@@ -16,5 +16,10 @@
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="massivecraft-repo" />
+      <option name="name" value="Massivecraft Private Dependencies" />
+      <option name="url" value="https://maven.massivecraft.team/repository/massivecraft-dependencies-private/" />
+    </remote-repository>
   </component>
 </project>
