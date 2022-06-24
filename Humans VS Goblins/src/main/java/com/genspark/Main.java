@@ -6,7 +6,6 @@ import com.genspark.utils.ExceptionUtils.ExceptionTileInUse;
 import com.genspark.utils.GameGrids;
 import com.genspark.utils.Movement;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 import static com.genspark.utils.Directions.EAST;
@@ -89,9 +88,9 @@ public class Main
 		// move main character before ticking other humanoids.
 		int[] xy = mainChar.getXY();
 		int[] dir = Movement.directionToVector2d(direction);
-		int[] newXy = new int[]{xy[0] + dir[0], xy[1] + dir[1]};
+		int[] newXY = new int[]{xy[0] + dir[0], xy[1] + dir[1]};
 		try {
-			gameGrids.moveHumanoidTo(newXy, mainChar);
+			gameGrids.moveHumanoidTo(newXY, mainChar);
 			
 		} catch (Exception e) {
 			System.out.println(e.getClass().getName());

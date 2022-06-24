@@ -160,8 +160,8 @@ public class GameGrids
 	}
 	public void moveHumanoidTo(int[] vector2d, Humanoid humanoid)
 	{
-		int y = vector2d[0];
-		int x = vector2d[1];
+		int x = vector2d[0];
+		int y = vector2d[1];
 		inBounds(y, x);
 		if (!hasHumanoid(y, x))
 		{
