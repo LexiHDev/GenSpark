@@ -6,6 +6,7 @@ import com.genspark.utils.ExceptionUtils.ExceptionTileInUse;
 import com.genspark.utils.GameGrids;
 import com.genspark.utils.Movement;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 import static com.genspark.utils.Directions.EAST;
@@ -68,6 +69,7 @@ public class Main
 						direction = NONE;
 				} // input to direction enum
 				tickGame(direction);
+				Arrays.stream(gameGrids.humanoids()).forEach(item -> item.tick(gameGrids)); // only way to tick humanoids I have designed...
 				repaintGame();
 				
 				
@@ -96,6 +98,5 @@ public class Main
 			System.out.println(e.getClass().getName());
 			return;
 		}
-		gameGrids.tickHumanoids();
 	}
 }
