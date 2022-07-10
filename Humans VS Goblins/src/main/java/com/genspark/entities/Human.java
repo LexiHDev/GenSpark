@@ -1,5 +1,8 @@
 package com.genspark.entities;
 
+import javax.imageio.ImageIO;
+import java.awt.Image;
+import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,7 +15,14 @@ public class Human extends Humanoid
 	@Override
 	public String toString() { return "H"; }
 	
-	
+	public Image toPixelArt()
+	{
+		try {
+			return ImageIO.read(new File("C:\\GenSparkGit\\Humans VS Goblins\\src\\main\\resources\\Human.png")).getScaledInstance(30, 30, Image.SCALE_DEFAULT);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}	}
 	
 	public Human() {
 		this.dmg = 10;

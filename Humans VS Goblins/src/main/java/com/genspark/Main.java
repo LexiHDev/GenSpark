@@ -3,16 +3,14 @@ package com.genspark;
 import com.genspark.entities.Humanoid;
 import com.genspark.utils.Directions;
 import com.genspark.utils.ExceptionUtils.ExceptionTileInUse;
+import com.genspark.utils.GUI;
 import com.genspark.utils.GameGrids;
 import com.genspark.utils.Movement;
 
+import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Scanner;
-
-import static com.genspark.utils.Directions.EAST;
-import static com.genspark.utils.Directions.NONE;
-import static com.genspark.utils.Directions.NORTH;
-import static com.genspark.utils.Directions.SOUTH;
-import static com.genspark.utils.Directions.WEST;
 
 public class Main
 {
@@ -21,11 +19,16 @@ public class Main
 	static Scanner scanner;
 	static Humanoid mainChar;
 	static Humanoid enemy;
+	static GUI gui;
+	public static Directions direction = Directions.NONE;
+	public static ArrayList<String> messages = new ArrayList<>();
+	static boolean playing = true;
 	
 	public static void main(String[] args)
 	{
 		try
 		{
+			gui = new GUI(gameGrids, direction, playing);
 			scanner = new Scanner(System.in);
 			enemy = gameGrids.addGoblin(1, 1);
 			mainChar = gameGrids.addHuman(3, 3);
@@ -47,30 +50,13 @@ public class Main
 		{
 			while (running)
 			{
-				Scanner scanner = new Scanner(System.in);
-				scanner.useDelimiter("");
-				char chara = Character.toLowerCase(scanner.next().charAt(0));
-				Directions direction;
-				switch(chara) {
-					case 'w':
-						direction = NORTH;
-						break;
-					case 's':
-						direction = SOUTH;
-						break;
-					case 'd':
-						direction = EAST;
-						break;
-					case 'a':
-						direction = WEST;
-						break;
-					default:
-						direction = NONE;
-				} // input to direction enum
-				tickGame(direction);
-				repaintGame();
-				
-				
+				OutputStream.nullOutputStream().write(direction.toString().getBytes(StandardCharsets.UTF_8));
+				// this is necessary otherwise direction will not pull any updates.
+				if (direction != Directions.NONE) {
+					tickGame(direction);
+					repaintGame();
+					direction = Directions.NONE;
+				}
 			}
 		}
 		catch (Exception e)
@@ -78,11 +64,14 @@ public class Main
 			e.printStackTrace();
 		}
 	}
+	
 	private static void repaintGame()
 	{
-		System.out.println(gameGrids);
-		System.out.println("Controls: WASD");
+		// System.out.println(gameGrids); // used for text GUI
+		// System.out.println("Controls: WASD");
+		gui.repaint();
 	}
+	
 	private static void tickGame(Directions direction)
 	{
 		// move main character before ticking other humanoids.

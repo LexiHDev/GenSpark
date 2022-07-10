@@ -5,6 +5,8 @@ import com.genspark.utils.GameGrids;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.awt.Image;
+
 public class Humanoid
 {
 	private int y; // ^ v up / down
@@ -15,6 +17,10 @@ public class Humanoid
 	public int finalDmg = 0;
 	public int finalHealth = 0;
 	public String name = "";
+	
+	public Image toPixelArt() {
+		return null;
+	}
 	
 	public void updateFinals()
 	{

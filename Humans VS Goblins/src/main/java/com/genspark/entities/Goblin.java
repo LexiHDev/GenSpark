@@ -3,6 +3,9 @@ package com.genspark.entities;
 import com.genspark.utils.Combat;
 import com.genspark.utils.GameGrids;
 
+import javax.imageio.ImageIO;
+import java.awt.Image;
+import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,7 +16,15 @@ public class Goblin extends Humanoid
 	@Override
 	public String toString() { return "G";}
 	
-	
+	public Image toPixelArt()
+	{
+		try {
+			return ImageIO.read(new File("C:\\GenSparkGit\\Humans VS Goblins\\src\\main\\resources\\Goblin.png")).getScaledInstance(30, 30, Image.SCALE_DEFAULT);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 	
 	public Goblin() {
 		health = 15;
