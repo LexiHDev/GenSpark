@@ -3,8 +3,6 @@ package com.genspark.entities;
 import com.genspark.Main;
 import com.genspark.utils.Combat;
 import com.genspark.utils.GameGrids;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.awt.Image;
 
@@ -13,12 +11,12 @@ public class Humanoid
 	private int y; // ^ v up / down
 	private int x; // <-> left / right
 	public int dmg = 0;
-	private static final Logger logger = LogManager.getLogger(Humanoid.class);
 	public int health = 0;
 	public int finalDmg = 0;
 	public int finalHealth = 0;
 	public String name = "";
 	
+
 	public Image toPixelArt() {
 		return null;
 	}
@@ -32,12 +30,11 @@ public class Humanoid
 	@Override
 	public String toString()
 	{
-		return "?";
+		return null;
 	}
 	
 	public void attackHumanoid(Humanoid humanoid)
 	{
-//		logger.debug();
 		int clampedDamage = Combat.getRandomDamage(this.finalDmg - 10, this.finalDmg);
 		//noinspection ManualMinMaxCalculation, technically this method is more efficient
 		clampedDamage = clampedDamage > this.finalDmg ? this.finalDmg : clampedDamage < 1 ? 1 : clampedDamage;

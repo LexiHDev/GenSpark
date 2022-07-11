@@ -10,7 +10,7 @@ import com.genspark.utils.Movement;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class Main
 {
@@ -50,6 +50,7 @@ public class Main
 		{
 			while (running)
 			{
+
 				OutputStream.nullOutputStream().write(direction.toString().getBytes(StandardCharsets.UTF_8));
 				// this is necessary otherwise direction will not pull any updates.
 				if (direction != Directions.NONE) {
@@ -85,6 +86,5 @@ public class Main
 			System.out.println(e.getClass().getName());
 			return;
 		}
-		gameGrids.tickHumanoids();
 	}
 }
