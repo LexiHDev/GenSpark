@@ -11,6 +11,11 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class GUI extends JFrame implements KeyListener
 {
@@ -20,6 +25,7 @@ public class GUI extends JFrame implements KeyListener
 	public Directions direction;
 	public boolean playing;
 	public GamePanel gPanel;
+	
 	@Override
 	public void keyTyped(KeyEvent e){
 	}
@@ -31,7 +37,6 @@ public class GUI extends JFrame implements KeyListener
 	@Override
 	public void keyReleased(KeyEvent e)
 	{
-		System.out.println(e.getKeyCode());
 		if (e.getKeyCode() == KeyEvent.VK_W) {
 			Main.direction = Directions.NORTH;
 		} else if (e.getKeyCode() == KeyEvent.VK_A) {
@@ -60,9 +65,29 @@ public class GUI extends JFrame implements KeyListener
 			g2d.clearRect(0, 0, 900, 900);
 			g2d.setPaint(new Color(11, 1, 21, 255));
 			g2d.fillRect(5, 5, tileWidth - 25, tileHeight - 50);  // - 50 height, - 25 width. (Why idk!)
-			g2d.setPaint(new Color(175, 175, 175));
 			g2d.drawRect(10, 10, tileWidth - 35, tileHeight - 60);
-			int y = 11;
+			
+			g2d.fillRect(tileWidth,  10, tileWidth, tileHeight - 60);
+			try
+			{
+				OutputStream.nullOutputStream().write(Main.messages.toString().getBytes(StandardCharsets.UTF_8));
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+			Optional<String> str = Main.messages
+				.subList(Math.max(Main.messages.size() - 10, 0), Main.messages.size()).stream()
+				.reduce((acc, com) -> acc + com + "\n");
+			
+			g2d.setPaint(new Color(175, 175, 175));
+			AtomicInteger y = new AtomicInteger(15);
+			str.ifPresent(s -> {
+				for (String line : s.split("\n"))
+					g2d.drawString(line, tileWidth + 5, y.addAndGet(g.getFontMetrics().getHeight()));
+			});
+			
+			y.set(11);
 			
 			for (int horizontalSlice = 0; horizontalSlice < gameGrids.tileGrid[0].length; horizontalSlice++)
 			{
@@ -73,17 +98,18 @@ public class GUI extends JFrame implements KeyListener
 				{
 					if (gameGrids.characterGrid[verticalSlice][horizontalSlice] instanceof Humanoid) // Check for a humanoid
 					{ // with
-						g2d.drawImage(((Humanoid) gameGrids.characterGrid[verticalSlice][horizontalSlice]).toPixelArt(), x, y, null); // character if exists
+						g2d.drawImage(((Humanoid) gameGrids.characterGrid[verticalSlice][horizontalSlice]).toPixelArt(), x, y.get(), null); // character if exists
 					}
 					else {
-						g2d.drawImage(((Tile) gameGrids.tileGrid[verticalSlice][horizontalSlice]).toPixelArt(), x, y, null); // tile if character null.
+						g2d.drawImage(((Tile) gameGrids.tileGrid[verticalSlice][horizontalSlice]).toPixelArt(), x, y.get(), null); // tile if character null.
 					}
 					x += size + 1;
 				}
-				y += size + 1;
+				y.addAndGet(size + 1);
 				// add right border.
 			}
 			
+			g2d.fillRect(905, 0, 900, 900);
 		}
 	}
 	
