@@ -1,7 +1,10 @@
 package com.genspark.entities;
 
+import com.genspark.Main;
 import com.genspark.utils.Combat;
 import com.genspark.utils.GameGrids;
+
+import java.awt.Image;
 
 public class Humanoid
 {
@@ -13,11 +16,9 @@ public class Humanoid
 	public int finalHealth = 0;
 	public String name = "";
 	
-	public Humanoid() {}; // default constructor;
-	
-	public Humanoid(int x, int y) {
-		this.x = x;
-		this.y = y;
+
+	public Image toPixelArt() {
+		return null;
 	}
 	
 	public void updateFinals()
@@ -38,7 +39,7 @@ public class Humanoid
 		//noinspection ManualMinMaxCalculation, technically this method is more efficient
 		clampedDamage = clampedDamage > this.finalDmg ? this.finalDmg : clampedDamage < 1 ? 1 : clampedDamage;
 		humanoid.finalHealth -= clampedDamage;
-		System.out.printf("\n%1$s attacked %2$s. %s$1 dealt %3$s damage.\n", this.name, humanoid.name, clampedDamage);
+		Main.messages.add(String.format("\n%1$s attacked %2$s. %s dealt %3$s damage.\n", this.name, humanoid.name, clampedDamage));
 	}
 	
 	public void tick(GameGrids gameGrids)
